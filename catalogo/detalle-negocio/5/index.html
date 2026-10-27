@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Alcaráz-Requena SA</title>
+
+    <!-- FontAwesome (Iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Bootstrap CSS (CDN para asegurar estilos y componentes) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Tailwind / Vite (Recursos de la aplicación) -->
+    <script type="module" src="http://[::1]:5173/@vite/client"></script><link rel="stylesheet" href="http://[::1]:5173/resources/css/app.css" /><script type="module" src="http://[::1]:5173/resources/js/app.js"></script>
+    <!-- CSS adicional por vista -->
+    </head>
+<body class="bg-light text-dark min-h-screen flex flex-col">
+
+    <!-- Encabezado / Navegación -->
+    <nav class="bg-slate-900 text-slate-100 shadow-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            
+            <!-- BRAND / LOGO -->
+            <div class="flex-shrink-0 flex items-center">
+                <a href="/" class="flex items-center">
+                    <img src="http://catalogo.test/storage/Logo.png" 
+                         class="h-10 w-auto object-contain" 
+                         alt="Logo">
+                </a>
+            </div>
+
+            <!-- BOTÓN HAMBURGUESA (MÓVIL) -->
+            <div class="flex md:hidden">
+                <button type="button" 
+                        id="mobile-menu-btn"
+                        class="text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 p-2 rounded-md"
+                        aria-controls="mobile-menu" 
+                        aria-expanded="false">
+                    <span class="sr-only">Abrir menú principal</span>
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+
+            <!-- ENLACES Y BOTONES (ESCRITORIO) -->
+            <div class="hidden md:flex md:items-center md:justify-between flex-1 ml-10">
+                <!-- ENLACES DE NAVEGACIÓN -->
+                <div class="flex space-x-4">
+                    <a href="http://catalogo.test" 
+                       class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="http://catalogo.test/catalogo/productos" 
+                       class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span>Productos</span>
+                    </a>
+                    <a href="http://catalogo.test/catalogo/servicios" 
+                       class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-hammer"></i>
+                        <span>Servicios</span>
+                    </a>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="flex items-center space-x-3">
+                    <a href="http://catalogo.test/catalogo/registro" 
+                       class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm px-4 py-2 rounded-lg shadow-sm transition-colors duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span>Registrarse</span>
+                    </a>
+                    <a href="http://catalogo.test/emprendedor/login" 
+                       class="border border-slate-600 hover:border-slate-400 text-slate-200 hover:text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Iniciar Sesión</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-2 pt-2 pb-4 space-y-1" id="mobile-menu">
+        <a href="http://catalogo.test" 
+           class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-house w-5"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="http://catalogo.test/catalogo/productos" 
+           class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-wallet w-5"></i>
+            <span>Productos</span>
+        </a>
+        <a href="http://catalogo.test/catalogo/servicios" 
+           class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-hammer w-5"></i>
+            <span>Servicios</span>
+        </a>
+
+        <div class="pt-4 border-t border-slate-800 flex flex-col space-y-2 px-1">
+            <a href="http://catalogo.test/catalogo/registro" 
+               class="w-full justify-center bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm px-4 py-2.5 rounded-lg shadow-sm transition-colors duration-200 flex items-center gap-2">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span>Registrarse</span>
+            </a>
+            <a href="http://catalogo.test/emprendedor/login" 
+               class="w-full justify-center border border-slate-600 hover:border-slate-400 text-slate-200 hover:text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors duration-200 flex items-center gap-2">
+                <i class="fa-solid fa-user"></i>
+                <span>Iniciar Sesión</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- SCRIPT JS PARA INTERACCIÓN DEL MENÚ MÓVIL -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        if (btn && menu) {
+            btn.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+                
+                const isExpanded = menu.classList.contains('hidden');
+                btn.setAttribute('aria-expanded', !isExpanded);
+
+                if (!isExpanded) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
+    <!-- Contenido Principal -->
+    <main class="flex-grow-1">
+        
+
+<section class="border-b border-gray-800 bg-gradient-to-br from-teal-900/60 via-gray-900 to-gray-900">
+    <div class="mx-auto max-w-7xl px-4 py-12 md:py-16">
+        <div class="flex flex-col items-center gap-8 md:flex-row">
+
+            
+            <div class="shrink-0 md:w-1/4 md:text-center">
+                <img
+                    src="https://picsum.photos/200/200?random=5"
+                    alt="Logo de Alcaráz-Requena SA"
+                    class="mx-auto h-32 w-32 rounded-full border-2 border-gray-700 object-cover"
+                >
+            </div>
+
+            
+            <div class="flex-1 text-center md:text-left">
+
+                <h1 class="text-3xl font-bold text-white md:text-4xl">
+                    Alcaráz-Requena SA
+                </h1>
+
+                <p class="mt-2 text-lg text-gray-300">
+                    Hic perferendis possimus tempore nulla animi. Quae corporis distinctio nam illo quia incidunt. Et expedita perspiciatis iste qui.
+                </p>
+
+                                    <p class="mt-3 text-gray-400">
+                        📍 Plaza Trujillo, 8, 1º 6º, 57308, Toro del Mirador
+                    </p>
+                
+                <div class="mt-5 flex flex-wrap justify-center gap-2 md:justify-start">
+
+                                            <a
+                            href="https://wa.me/525520323400"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex items-center gap-2 rounded-md bg-green-600 px-4 py-2 font-medium text-white hover:bg-green-500 focus:outline-none focus:ring-2 focus:ring-green-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                        >
+                            <i class="fa-brands fa-whatsapp"></i> WhatsApp
+                        </a>
+                    
+                                            <a
+                            href="https://facebook.com/alcaraz-requena-sa"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 font-medium text-white hover:bg-blue-500 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                        >
+                            <i class="fa-brands fa-facebook"></i> Facebook
+                        </a>
+                    
+                                            <a
+                            href="https://instagram.com/alcaraz-requena-sa"
+                            target="_blank"
+                            rel="noopener"
+                            class="inline-flex items-center gap-2 rounded-md bg-red-600 px-4 py-2 font-medium text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                        >
+                            <i class="fa-brands fa-instagram"></i> Instagram
+                        </a>
+                    
+                    
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<div class="mx-auto max-w-7xl px-4 py-12">
+
+    <h2 class="mb-6 text-2xl font-semibold text-white md:text-3xl">
+        Productos y Servicios
+    </h2>
+
+    <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+        
+            <div class="flex flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+
+                
+                <div class="aspect-[4/3] bg-gray-800">
+                    <img
+                        src="https://picsum.photos/400/400?random=12"
+                        alt="facere nobis odio"
+                        class="h-full w-full object-cover"
+                    >
+                </div>
+
+                
+                <div class="flex flex-1 flex-col p-5">
+
+                    <h4 class="text-lg font-semibold text-white">
+                        facere nobis odio
+                    </h4>
+
+                    <div class="mt-3 flex flex-wrap gap-2">
+
+                        <span class="rounded-full bg-teal-500/20 px-2.5 py-0.5 text-xs font-medium text-teal-300">
+                            Producto
+                        </span>
+
+                                                    <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Belleza y Cuidado Personal
+                            </span>
+                        
+                    </div>
+
+                    <p class="mt-3 flex-1 text-gray-400">
+                        Dolores nesciunt dolore veritatis libero aut ipsum sequi dolorem eum.
+                    </p>
+
+                    <p class="mt-4 text-xl font-semibold text-emerald-400">
+                        $726.35
+                    </p>
+
+                </div>
+            </div>
+
+        
+            <div class="flex flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+
+                
+                <div class="aspect-[4/3] bg-gray-800">
+                    <img
+                        src="https://picsum.photos/400/400?random=13"
+                        alt="nulla nam ut"
+                        class="h-full w-full object-cover"
+                    >
+                </div>
+
+                
+                <div class="flex flex-1 flex-col p-5">
+
+                    <h4 class="text-lg font-semibold text-white">
+                        nulla nam ut
+                    </h4>
+
+                    <div class="mt-3 flex flex-wrap gap-2">
+
+                        <span class="rounded-full bg-teal-500/20 px-2.5 py-0.5 text-xs font-medium text-teal-300">
+                            Producto
+                        </span>
+
+                                                    <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Salud y Bienestar
+                            </span>
+                        
+                    </div>
+
+                    <p class="mt-3 flex-1 text-gray-400">
+                        Quis nostrum qui tempora ab harum consequatur consequatur tenetur ut itaque sint.
+                    </p>
+
+                    <p class="mt-4 text-xl font-semibold text-emerald-400">
+                        $884.66
+                    </p>
+
+                </div>
+            </div>
+
+        
+            <div class="flex flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+
+                
+                <div class="aspect-[4/3] bg-gray-800">
+                    <img
+                        src="https://picsum.photos/400/400?random=14"
+                        alt="nam ducimus reiciendis"
+                        class="h-full w-full object-cover"
+                    >
+                </div>
+
+                
+                <div class="flex flex-1 flex-col p-5">
+
+                    <h4 class="text-lg font-semibold text-white">
+                        nam ducimus reiciendis
+                    </h4>
+
+                    <div class="mt-3 flex flex-wrap gap-2">
+
+                        <span class="rounded-full bg-teal-500/20 px-2.5 py-0.5 text-xs font-medium text-teal-300">
+                            Servicio
+                        </span>
+
+                                                    <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Arte y Diseño
+                            </span>
+                        
+                    </div>
+
+                    <p class="mt-3 flex-1 text-gray-400">
+                        Nihil error quia reprehenderit dolorem officiis dolorum natus est consequuntur rerum officiis.
+                    </p>
+
+                    <p class="mt-4 text-xl font-semibold text-emerald-400">
+                        $358.11
+                    </p>
+
+                </div>
+            </div>
+
+        
+            <div class="flex flex-col overflow-hidden rounded-xl border border-gray-800 bg-gray-900">
+
+                
+                <div class="aspect-[4/3] bg-gray-800">
+                    <img
+                        src="https://picsum.photos/400/400?random=15"
+                        alt="et quae non"
+                        class="h-full w-full object-cover"
+                    >
+                </div>
+
+                
+                <div class="flex flex-1 flex-col p-5">
+
+                    <h4 class="text-lg font-semibold text-white">
+                        et quae non
+                    </h4>
+
+                    <div class="mt-3 flex flex-wrap gap-2">
+
+                        <span class="rounded-full bg-teal-500/20 px-2.5 py-0.5 text-xs font-medium text-teal-300">
+                            Servicio
+                        </span>
+
+                                                    <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Educación
+                            </span>
+                        
+                    </div>
+
+                    <p class="mt-3 flex-1 text-gray-400">
+                        Consectetur ut necessitatibus vel similique in voluptatibus ut quam deserunt corporis ducimus numquam.
+                    </p>
+
+                    <p class="mt-4 text-xl font-semibold text-emerald-400">
+                        $960.80
+                    </p>
+
+                </div>
+            </div>
+
+        
+    </div>
+</div>
+
+    </main>
+
+    <!-- jQuery (Requerido por los scripts de tus vistas) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap JS Bundle (Requerido para Modales, Alerts y Dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts adicionales por vista -->
+    
+</body>
+</html>

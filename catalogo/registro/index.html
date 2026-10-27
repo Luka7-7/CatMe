@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Oscar René Domínguez">
+    
+    <title>Registro</title>
+
+    <!-- FontAwesome (Iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Bootstrap 5 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Tailwind / Vite (CSS y JS) -->
+    <script type="module" src="http://[::1]:5173/@vite/client"></script><link rel="stylesheet" href="http://[::1]:5173/resources/css/app.css" /><script type="module" src="http://[::1]:5173/resources/js/app.js"></script>
+    <!-- CSS adicional por vista -->
+    </head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col justify-center">
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="w-full">
+        
+<section class="px-4 py-12">
+
+    <div class="mx-auto w-full max-w-xl">
+
+        <div class="rounded-xl border border-gray-800 bg-gray-900 p-6 shadow-lg md:p-8">
+
+            <h1 class="mb-6 text-center text-3xl font-bold text-white">
+                Crear Cuenta
+            </h1>
+
+            <form data-auth="register" class="space-y-5">
+                <div data-form-message role="status" aria-live="polite" class="hidden"></div>
+                
+                <div>
+                    <label for="nombre" class="mb-1 block text-sm font-medium text-gray-300">
+                        Nombre Completo
+                    </label>
+
+                    <div class="relative">
+                        <span class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center justify-center text-gray-500">
+                            <i class="fas fa-user"></i>
+                        </span>
+
+                        <input
+                            id="nombre"
+                            class="w-full rounded-md border bg-gray-800 py-2 pl-10 pr-3 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1  border-gray-700 focus:border-teal-500 focus:ring-teal-500 "
+                            type="text"
+                            name="nombre"
+                            placeholder="Ingresa tu nombre"
+                            value=""
+                            autocomplete="name"
+                            required
+                        >
+                    </div>
+
+                                    </div>
+
+                
+                <div>
+                    <label for="correo_electronico" class="mb-1 block text-sm font-medium text-gray-300">
+                        Correo Electrónico
+                    </label>
+
+                    <div class="relative">
+                        <span class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center justify-center text-gray-500">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+
+                        <input
+                            id="correo_electronico"
+                            class="w-full rounded-md border bg-gray-800 py-2 pl-10 pr-3 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1  border-gray-700 focus:border-teal-500 focus:ring-teal-500 "
+                            type="email"
+                            name="correo_electronico"
+                            placeholder="correo@ejemplo.com"
+                            value=""
+                            autocomplete="email"
+                            required
+                        >
+                    </div>
+
+                                    </div>
+
+                
+                <div>
+                    <label for="contrasena" class="mb-1 block text-sm font-medium text-gray-300">
+                        Contraseña
+                    </label>
+
+                    <div class="relative">
+                        <span class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center justify-center text-gray-500">
+                            <i class="fas fa-lock"></i>
+                        </span>
+
+                        <input
+                            id="contrasena"
+                            class="w-full rounded-md border bg-gray-800 py-2 pl-10 pr-3 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-1  border-gray-700 focus:border-teal-500 focus:ring-teal-500 "
+                            type="password"
+                            name="contrasena"
+                            placeholder="********"
+                            autocomplete="new-password"
+                            minlength="8"
+                            required
+                        >
+                    </div>
+
+                                    </div>
+
+                
+                <div>
+                    <label for="contrasena_confirmation" class="mb-1 block text-sm font-medium text-gray-300">
+                        Confirmar Contraseña
+                    </label>
+
+                    <div class="relative">
+                        <span class="pointer-events-none absolute inset-y-0 left-0 flex w-10 items-center justify-center text-gray-500">
+                            <i class="fas fa-lock"></i>
+                        </span>
+
+                        <input
+                            id="contrasena_confirmation"
+                            class="w-full rounded-md border border-gray-700 bg-gray-800 py-2 pl-10 pr-3 text-gray-100 placeholder-gray-500 focus:border-teal-500 focus:outline-none focus:ring-1 focus:ring-teal-500"
+                            type="password"
+                            name="contrasena_confirmation"
+                            placeholder="********"
+                            autocomplete="new-password"
+                            required
+                        >
+                    </div>
+                </div>
+
+                
+                <div>
+                    <label class="flex cursor-pointer items-center gap-2 text-gray-300">
+                        <input
+                            type="checkbox"
+                            class="h-4 w-4 rounded border-gray-600 bg-gray-800 accent-teal-500"
+                            required
+                        >
+                        Acepto los términos y condiciones
+                    </label>
+                </div>
+
+                
+                <div class="pt-2">
+                    <button
+                        type="submit"
+                        class="flex w-full items-center justify-center gap-2 rounded-md bg-teal-500 px-4 py-2.5 font-semibold text-gray-950 hover:bg-teal-400 focus:outline-none focus:ring-2 focus:ring-teal-300 focus:ring-offset-2 focus:ring-offset-gray-900"
+                    >
+                        <i class="fas fa-user-plus"></i>
+                        <span>Registrarse</span>
+                    </button>
+                </div>
+
+            </form>
+
+            
+            <p class="mt-6 text-center text-gray-400">
+                ¿Ya tienes cuenta?
+                <a href="../../emprendedor/login/index.html" class="font-medium text-teal-300 hover:text-teal-200 hover:underline">
+                    Inicia sesión
+                </a>
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+    </main>
+
+    <!-- jQuery (Requerido para interacción de scripts) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts adicionales por vista -->
+    <script src="../../local-storage-db.js"></script>
+    <script src="../../local-storage-auth.js"></script>
+</body>
+</html>

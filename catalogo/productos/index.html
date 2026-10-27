@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <title>Productos</title>
+
+    <!-- FontAwesome (Iconos) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Bootstrap CSS (CDN para asegurar estilos y componentes) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+
+    <!-- Tailwind / Vite (Recursos de la aplicación) -->
+    <script type="module" src="http://[::1]:5173/@vite/client"></script><link rel="stylesheet" href="http://[::1]:5173/resources/css/app.css" /><script type="module" src="http://[::1]:5173/resources/js/app.js"></script>
+    <!-- CSS adicional por vista -->
+    </head>
+<body class="bg-light text-dark min-h-screen flex flex-col">
+
+    <!-- Encabezado / Navegación -->
+    <nav class="bg-slate-900 text-slate-100 shadow-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16">
+            
+            <!-- BRAND / LOGO -->
+            <div class="flex-shrink-0 flex items-center">
+                <a href="/" class="flex items-center">
+                    <img src="http://catalogo.test/storage/Logo.png" 
+                         class="h-10 w-auto object-contain" 
+                         alt="Logo">
+                </a>
+            </div>
+
+            <!-- BOTÓN HAMBURGUESA (MÓVIL) -->
+            <div class="flex md:hidden">
+                <button type="button" 
+                        id="mobile-menu-btn"
+                        class="text-slate-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500 p-2 rounded-md"
+                        aria-controls="mobile-menu" 
+                        aria-expanded="false">
+                    <span class="sr-only">Abrir menú principal</span>
+                    <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                </button>
+            </div>
+
+            <!-- ENLACES Y BOTONES (ESCRITORIO) -->
+            <div class="hidden md:flex md:items-center md:justify-between flex-1 ml-10">
+                <!-- ENLACES DE NAVEGACIÓN -->
+                <div class="flex space-x-4">
+                    <a href="http://catalogo.test" 
+                       class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-house"></i>
+                        <span>Inicio</span>
+                    </a>
+                    <a href="http://catalogo.test/catalogo/productos" 
+                       class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-wallet"></i>
+                        <span>Productos</span>
+                    </a>
+                    <a href="http://catalogo.test/catalogo/servicios" 
+                       class="px-3 py-2 rounded-md text-sm font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+                        <i class="fa-solid fa-hammer"></i>
+                        <span>Servicios</span>
+                    </a>
+                </div>
+
+                <!-- BOTONES DE ACCIÓN -->
+                <div class="flex items-center space-x-3">
+                    <a href="http://catalogo.test/catalogo/registro" 
+                       class="bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm px-4 py-2 rounded-lg shadow-sm transition-colors duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                        <span>Registrarse</span>
+                    </a>
+                    <a href="http://catalogo.test/emprendedor/login" 
+                       class="border border-slate-600 hover:border-slate-400 text-slate-200 hover:text-white text-sm font-medium px-4 py-2 rounded-lg transition-colors duration-200 flex items-center gap-2">
+                        <i class="fa-solid fa-user"></i>
+                        <span>Iniciar Sesión</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- MENÚ DESPLEGABLE (MÓVIL) -->
+    <div class="hidden md:hidden bg-slate-900 border-t border-slate-800 px-2 pt-2 pb-4 space-y-1" id="mobile-menu">
+        <a href="http://catalogo.test" 
+           class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-house w-5"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="http://catalogo.test/catalogo/productos" 
+           class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-wallet w-5"></i>
+            <span>Productos</span>
+        </a>
+        <a href="http://catalogo.test/catalogo/servicios" 
+           class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:text-white hover:bg-slate-800 transition-colors flex items-center gap-2">
+            <i class="fa-solid fa-hammer w-5"></i>
+            <span>Servicios</span>
+        </a>
+
+        <div class="pt-4 border-t border-slate-800 flex flex-col space-y-2 px-1">
+            <a href="http://catalogo.test/catalogo/registro" 
+               class="w-full justify-center bg-blue-600 hover:bg-blue-500 text-white font-bold text-sm px-4 py-2.5 rounded-lg shadow-sm transition-colors duration-200 flex items-center gap-2">
+                <i class="fa-solid fa-arrow-right-to-bracket"></i>
+                <span>Registrarse</span>
+            </a>
+            <a href="http://catalogo.test/emprendedor/login" 
+               class="w-full justify-center border border-slate-600 hover:border-slate-400 text-slate-200 hover:text-white text-sm font-medium px-4 py-2.5 rounded-lg transition-colors duration-200 flex items-center gap-2">
+                <i class="fa-solid fa-user"></i>
+                <span>Iniciar Sesión</span>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!-- SCRIPT JS PARA INTERACCIÓN DEL MENÚ MÓVIL -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        if (btn && menu) {
+            btn.addEventListener('click', function() {
+                menu.classList.toggle('hidden');
+                
+                const isExpanded = menu.classList.contains('hidden');
+                btn.setAttribute('aria-expanded', !isExpanded);
+
+                if (!isExpanded) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                } else {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                }
+            });
+        }
+    });
+</script>
+    <!-- Contenido Principal -->
+    <main class="flex-grow-1">
+        
+
+<section class="mb-10 border-b border-gray-800 bg-gradient-to-br from-teal-900/60 via-gray-900 to-gray-900">
+    <div class="mx-auto max-w-7xl px-4 py-12">
+        <h1 class="flex items-center justify-center text-center text-3xl font-bold text-white md:text-4xl">
+            Catálogo de Productos
+        </h1>
+    </div>
+</section>
+
+<div class="mx-auto max-w-7xl px-4 pb-12">
+
+    <div class="flex flex-col gap-8 md:flex-row">
+
+        
+        <aside class="md:w-1/4 md:shrink-0">
+
+            <nav class="rounded-xl border border-gray-800 bg-gray-900 p-4 md:sticky md:top-6" aria-label="Categorías">
+
+                <p class="mb-2 px-3 text-sm font-semibold text-gray-400">
+                    Categorías
+                </p>
+
+                <ul class="space-y-1">
+
+                    <li>
+                        <a
+                            href="http://catalogo.test/catalogo/productos"
+                            class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                    >
+                            Todas
+                        </a>
+                    </li>
+
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=1"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Gastronomía
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=2"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Belleza y Cuidado Personal
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=3"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Moda y Accesorios
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=4"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Salud y Bienestar
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=5"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Servicios para el Hogar
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=6"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Tecnología
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=7"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Mascotas
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=8"
+                                class="block rounded-md px-3 py-2 text-gray-300 hover:bg-gray-800 hover:text-white"
+                                                            >
+                                Arte y Diseño
+                            </a>
+                        </li>
+                                            <li>
+                            <a
+                                href="http://catalogo.test/catalogo/productos?categoria=9"
+                                class="block rounded-md px-3 py-2 bg-teal-500/20 font-medium text-teal-300"
+                                 aria-current="page"                             >
+                                Educación
+                            </a>
+                        </li>
+                    
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        
+        <div class="flex-1">
+
+            <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+
+                
+                    <div class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-lg">
+
+      <div class="aspect-[4/3] w-full overflow-hidden bg-gray-800">
+      <img src="https://picsum.photos/400/400?random=2" alt="rem quia adipisci" class="h-full w-full object-cover">
+    </div>
+  
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-4">
+              <p class="text-xl font-semibold leading-tight text-white">
+          rem quia adipisci
+        </p>
+      
+          </div>
+
+    <div class="flex-1 text-base leading-relaxed text-gray-300">
+      <div class="flex items-center justify-between gap-2">
+
+                            <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Producto
+                            </span>
+
+                            <span class="text-lg font-bold text-emerald-400">
+                                $165.43
+                            </span>
+
+                        </div>
+
+                        <p class="mt-3 text-sm text-gray-400">
+                            Ipsa illo blanditiis nobis est et eum voluptatibus omnis eum dolor in voluptatem...
+                        </p>
+
+                        <div class="mt-4">
+                            <a
+                                href="http://catalogo.test/catalogo/detalle-negocio/1"
+                                class="block w-full rounded-md border border-teal-500 px-4 py-2 text-center font-medium text-teal-300 hover:bg-teal-500 hover:text-gray-950 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                            >
+                                Ver Detalles
+                            </a>
+                        </div>
+    </div>
+
+  </div>
+
+</div>
+                
+                    <div class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-lg">
+
+      <div class="aspect-[4/3] w-full overflow-hidden bg-gray-800">
+      <img src="https://picsum.photos/400/400?random=57" alt="nemo iure non" class="h-full w-full object-cover">
+    </div>
+  
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-4">
+              <p class="text-xl font-semibold leading-tight text-white">
+          nemo iure non
+        </p>
+      
+          </div>
+
+    <div class="flex-1 text-base leading-relaxed text-gray-300">
+      <div class="flex items-center justify-between gap-2">
+
+                            <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Producto
+                            </span>
+
+                            <span class="text-lg font-bold text-emerald-400">
+                                $1,112.59
+                            </span>
+
+                        </div>
+
+                        <p class="mt-3 text-sm text-gray-400">
+                            Beatae quas sed laudantium rerum ea distinctio nisi ut qui velit rerum quis dolo...
+                        </p>
+
+                        <div class="mt-4">
+                            <a
+                                href="http://catalogo.test/catalogo/detalle-negocio/18"
+                                class="block w-full rounded-md border border-teal-500 px-4 py-2 text-center font-medium text-teal-300 hover:bg-teal-500 hover:text-gray-950 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                            >
+                                Ver Detalles
+                            </a>
+                        </div>
+    </div>
+
+  </div>
+
+</div>
+                
+                    <div class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-lg">
+
+      <div class="aspect-[4/3] w-full overflow-hidden bg-gray-800">
+      <img src="https://picsum.photos/400/400?random=157" alt="nemo iure non" class="h-full w-full object-cover">
+    </div>
+  
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-4">
+              <p class="text-xl font-semibold leading-tight text-white">
+          nemo iure non
+        </p>
+      
+          </div>
+
+    <div class="flex-1 text-base leading-relaxed text-gray-300">
+      <div class="flex items-center justify-between gap-2">
+
+                            <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Producto
+                            </span>
+
+                            <span class="text-lg font-bold text-emerald-400">
+                                $1,112.59
+                            </span>
+
+                        </div>
+
+                        <p class="mt-3 text-sm text-gray-400">
+                            Beatae quas sed laudantium rerum ea distinctio nisi ut qui velit rerum quis dolo...
+                        </p>
+
+                        <div class="mt-4">
+                            <a
+                                href="http://catalogo.test/catalogo/detalle-negocio/18"
+                                class="block w-full rounded-md border border-teal-500 px-4 py-2 text-center font-medium text-teal-300 hover:bg-teal-500 hover:text-gray-950 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                            >
+                                Ver Detalles
+                            </a>
+                        </div>
+    </div>
+
+  </div>
+
+</div>
+                
+                    <div class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-lg">
+
+      <div class="aspect-[4/3] w-full overflow-hidden bg-gray-800">
+      <img src="https://picsum.photos/400/400?random=60" alt="fugiat et illo" class="h-full w-full object-cover">
+    </div>
+  
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-4">
+              <p class="text-xl font-semibold leading-tight text-white">
+          fugiat et illo
+        </p>
+      
+          </div>
+
+    <div class="flex-1 text-base leading-relaxed text-gray-300">
+      <div class="flex items-center justify-between gap-2">
+
+                            <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Producto
+                            </span>
+
+                            <span class="text-lg font-bold text-emerald-400">
+                                $1,488.64
+                            </span>
+
+                        </div>
+
+                        <p class="mt-3 text-sm text-gray-400">
+                            Necessitatibus neque voluptas placeat quod hic placeat dolores est atque nemo au...
+                        </p>
+
+                        <div class="mt-4">
+                            <a
+                                href="http://catalogo.test/catalogo/detalle-negocio/19"
+                                class="block w-full rounded-md border border-teal-500 px-4 py-2 text-center font-medium text-teal-300 hover:bg-teal-500 hover:text-gray-950 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                            >
+                                Ver Detalles
+                            </a>
+                        </div>
+    </div>
+
+  </div>
+
+</div>
+                
+                    <div class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-lg">
+
+      <div class="aspect-[4/3] w-full overflow-hidden bg-gray-800">
+      <img src="https://picsum.photos/400/400?random=64" alt="labore est ullam" class="h-full w-full object-cover">
+    </div>
+  
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-4">
+              <p class="text-xl font-semibold leading-tight text-white">
+          labore est ullam
+        </p>
+      
+          </div>
+
+    <div class="flex-1 text-base leading-relaxed text-gray-300">
+      <div class="flex items-center justify-between gap-2">
+
+                            <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Producto
+                            </span>
+
+                            <span class="text-lg font-bold text-emerald-400">
+                                $1,391.71
+                            </span>
+
+                        </div>
+
+                        <p class="mt-3 text-sm text-gray-400">
+                            Ab quia natus odit vitae dignissimos et perspiciatis quis.
+                        </p>
+
+                        <div class="mt-4">
+                            <a
+                                href="http://catalogo.test/catalogo/detalle-negocio/20"
+                                class="block w-full rounded-md border border-teal-500 px-4 py-2 text-center font-medium text-teal-300 hover:bg-teal-500 hover:text-gray-950 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                            >
+                                Ver Detalles
+                            </a>
+                        </div>
+    </div>
+
+  </div>
+
+</div>
+                
+                    <div class="flex h-full flex-col overflow-hidden rounded-lg border border-gray-800 bg-gray-900 shadow-lg">
+
+      <div class="aspect-[4/3] w-full overflow-hidden bg-gray-800">
+      <img src="https://picsum.photos/400/400?random=164" alt="labore est ullam" class="h-full w-full object-cover">
+    </div>
+  
+  <div class="flex flex-1 flex-col p-6">
+
+    <div class="mb-4">
+              <p class="text-xl font-semibold leading-tight text-white">
+          labore est ullam
+        </p>
+      
+          </div>
+
+    <div class="flex-1 text-base leading-relaxed text-gray-300">
+      <div class="flex items-center justify-between gap-2">
+
+                            <span class="rounded-full bg-sky-500/15 px-2.5 py-0.5 text-xs font-medium text-sky-300">
+                                Producto
+                            </span>
+
+                            <span class="text-lg font-bold text-emerald-400">
+                                $1,391.71
+                            </span>
+
+                        </div>
+
+                        <p class="mt-3 text-sm text-gray-400">
+                            Ab quia natus odit vitae dignissimos et perspiciatis quis.
+                        </p>
+
+                        <div class="mt-4">
+                            <a
+                                href="http://catalogo.test/catalogo/detalle-negocio/20"
+                                class="block w-full rounded-md border border-teal-500 px-4 py-2 text-center font-medium text-teal-300 hover:bg-teal-500 hover:text-gray-950 focus:outline-none focus:ring-2 focus:ring-teal-400 focus:ring-offset-2 focus:ring-offset-gray-900"
+                            >
+                                Ver Detalles
+                            </a>
+                        </div>
+    </div>
+
+  </div>
+
+</div>
+                
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+    </main>
+
+    <!-- jQuery (Requerido por los scripts de tus vistas) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <!-- Bootstrap JS Bundle (Requerido para Modales, Alerts y Dropdowns) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts adicionales por vista -->
+    
+</body>
+</html>
